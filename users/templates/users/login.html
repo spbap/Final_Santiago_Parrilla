@@ -1,0 +1,56 @@
+{% extends 'app_final/index.html' %}
+
+{% block barra %}
+<a class="navbar-brand" href="{% url 'home' %}">Home</a>
+{% endblock barra %}
+
+{% block cabecera %}
+<header class="masthead">
+    <div class="container px-4 px-lg-5 h-100">
+        <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+            <div class="col-lg-8 align-self-end">
+                <h1 class="text-white font-weight-bold">Ingreso a la aplicacion.</h1>
+                <hr class="divider" />
+            </div>
+            <div class="col-lg-8 align-self-baseline">
+                <a class="btn btn-primary btn-xl" href="#ingresos">Ingreso</a>
+            </div>
+        </div>
+    </div>
+</header>
+{% endblock cabecera %}
+
+{% block ingresos %}
+<section class="page-section" id="ingresos">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-lg-8 col-xl-6 text-center">
+                <h2 class="mt-0">Ingreso a la aplicacion</h2>
+                <hr class="divider" />
+                <p class="text-muted mb-5">Ingrese los datos solicitados</p>
+            </div>
+        </div>
+        <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
+            <div class="col-lg-6">
+                <!-- to get an API token!-->
+                <form action="{% url 'login' %}" method="POST" id="contactForm" data-sb-form-api-token="API_TOKEN">
+                    {% csrf_token %}
+                    <!-- Nombre input-->
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="id_username" type="text" name="username" placeholder="Ingrese usuario..." data-sb-validations="required">
+                        <label for="id_username">Usuario</label>
+                        <div class="invalid-feedback" data-sb-feedback="username:required">Usuario es requerido.</div>
+                    </div>
+                    <!-- Apellido address input-->
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="id_password" type="password" name="password" placeholder="Ingrese contraseña..." data-sb-validations="required">
+                        <label for="id_password">Contraseña</label>
+                        <div class="invalid-feedback" data-sb-feedback="password:required">Contraseña es requerida.</div>
+                    </div>
+                    <div class="d-grid"><button class="btn btn-primary btn-lg" id="submitButton" type="submit">Iniciar sesión</button></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock ingresos %}

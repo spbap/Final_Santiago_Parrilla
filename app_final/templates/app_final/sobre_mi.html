@@ -1,0 +1,27 @@
+{% extends 'app_final/index.html' %}
+
+{% block barra %}
+<a class="navbar-brand" href="{% url 'home' %}">Home</a>
+{% endblock barra %}
+
+{% block cabecera %}
+<header class="masthead">
+    <div class="container px-4 px-lg-5 h-50">
+        <div class="row gx-4 gx-lg-5 h-50 align-items-center justify-content-center text-center">
+            <p></p><p></p><p></p>
+            <h1 class="text-white font-weight-bold">Santiago Parrilla</h1>
+            <p></p><p></p><p></p>
+            <h2 class="text-white font-weight-bold">Sobre mi</h3>
+            <div class="col-lg-8 align-self-end">
+                <h3 class="text-white font-weight-bold">
+                    <p>Soy Jefe de Estadística con más de 10 años de experiencia, especializado en análisis de datos, gestión de políticas públicas y Big Data, con habilidades avanzadas en Python, SQL, y Power BI. Licenciado y Profesor en Sociología por la Universidad de Buenos Aires, he liderado equipos y proyectos, transformando datos en información valiosa para guiar decisiones estratégicas.</p>
+                    <p>En mi rol actual en una organización sindical, elaboro informes estadísticos, realizo análisis comparativos de salarios y paritarias, y coordino todo tipo de encuestas. Mi formación incluye estudios de posgrado en Gestión y Control de Políticas Públicas, Big Data y Políticas Públicas, y Ciencias Computacionales y Humanidades Digitales. Además, he desarrollado competencias en oratoria y negociación, permitiéndome comunicar hallazgos de manera efectiva y persuasiva.</p>
+                    <p>Mi objetivo es utilizar el poder de los datos para crear impacto y optimizar procesos, con el fin de aplicar mis conocimientos y habilidades para resolver desafíos complejos y fomentar un crecimiento sostenible. Abierto a nuevas oportunidades en organizaciones dinámicas que valoren la analítica avanzada y la toma de decisiones basada en datos.</p>
+                </h3>
+                <hr class="divider" />
+            </div>
+        </div>
+    </div>
+</header>
+{% endblock cabecera %}
+

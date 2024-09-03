@@ -1,0 +1,83 @@
+{% extends 'app_final/index.html' %}
+
+{% block barra %}
+<a class="navbar-brand" href="{% url 'pedidos' %}">Volver</a>
+{% endblock barra %}
+
+{% block cabecera %}
+<header class="masthead">
+    <div class="container px-4 px-lg-5 h-100">
+        <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+            <div class="col-lg-8 align-self-end">
+                <h1 class="text-white font-weight-bold">Ingrese los datos haciendo click en donde dice Actualizar Pedidos</h1>
+                <hr class="divider" />
+            </div>
+            <div class="col-lg-8 align-self-baseline">
+                 <a class="btn btn-primary btn-xl" href="#ingresos">Actualizar Pedido</a>
+            </div>
+        </div>
+    </div>
+</header>
+{% endblock cabecera %}
+
+{% block ingresos %}
+<section class="page-section" id="ingresos">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-lg-8 col-xl-6 text-center">
+                <h2 class="mt-0">Actualizar Pedido</h2>
+                <hr class="divider" />
+                <p class="text-muted mb-5">Ingrese los datos solicitados</p>
+            </div>
+        </div>
+        <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
+            <div class="col-lg-6">
+                <!-- to get an API token!-->
+                <form action="{% url 'actualizar_pedido' pedido.id %}" method="POST">
+                    {% csrf_token %}
+                    <!-- Persona input-->
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="persona" name="persona" type="text" placeholder="Ingrese persona..." data-sb-validations="required" />
+                        <label for="persona">{{pedido.persona}}</label>
+                        <div class="invalid-feedback" data-sb-feedback="persona:required">Persona is required.</div>
+                    </div>
+                    <!-- Producto input-->
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="producto" name = "producto" type="text" placeholder="Ingrese producto..." data-sb-validations="required" readonly value="{{pedido.producto}}" />
+                        <label for="producto">{{pedido.producto}}</label>
+                        <div class="invalid-feedback" data-sb-feedback="producto:required">Producto is required.</div>
+                    </div>
+                    <!-- Fecha Pedido input-->
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="fecha_pedido" name="fecha_pedido" type="date" placeholder="Ingrese fecha del pedido..." data-sb-validations="required" />
+                        <label for="fecha_pedido">{{pedido.fecha_pedido}}</label>
+                        <div class="invalid-feedback" data-sb-feedback="fecha_pedido:required">Fecha del pedido is required.</div>
+                    </div>
+                    <!-- Cantidad input-->
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="cantidad" name="cantidad" type="number" placeholder="Ingrese cantidad..." min="0" data-sb-validations="required,number" />
+                        <label for="cantidad">{{pedido.cantidad}}</label>
+                        <div class="invalid-feedback" data-sb-feedback="cantidad:required">Cantidad is required.</div>
+                    </div>
+                    <div class="d-none" id="submitSuccessMessage">
+                        <div class="text-center mb-3">
+                            <div class="fw-bolder">Datos subidos de manera correcta!</div>
+                            Muchas gracias
+                            <br />
+                        </div>
+                    </div>
+                    <!-- Submit error message-->
+                    <!---->
+                    <!-- This is what your users will see when there is-->
+                    <!-- an error submitting the form-->
+                    <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error! Intente nuevamente</div></div>
+                    <!-- Submit Button-->
+                    <div class="d-grid"><button class="btn btn-primary btn-xl" id="submitButton" type="submit">Actualizar</button></div>
+                </form>
+                <p></p>
+                <a class="btn btn-primary btn-xl" href="{% url 'buscar_pedido' %}">Volver</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock ingresos %}

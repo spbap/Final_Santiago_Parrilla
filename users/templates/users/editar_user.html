@@ -1,0 +1,69 @@
+{% extends 'app_final/index.html' %}
+
+{% block barra %}
+<a class="navbar-brand" href="{% url 'home' %}">Home</a>
+{% endblock barra %}
+
+{% block cabecera %}
+<header class="masthead">
+    <div class="container px-4 px-lg-5 h-100">
+        <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+            <div class="col-lg-8 align-self-end">
+                <h1 class="text-white font-weight-bold">Modificar perfil</h1>
+                <hr class="divider" />
+            </div>
+            <div class="col-lg-8 align-self-baseline">
+                <a class="btn btn-primary btn-xl" href="#ingresos">Modificar</a>
+            </div>
+        </div>
+    </div>
+</header>
+{% endblock cabecera %}
+
+{% block ingresos %}
+<section class="page-section" id="ingresos">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-lg-8 col-xl-6 text-center">
+                <h2 class="mt-0">Modificar datos</h2>
+                <hr class="divider" />
+                <p class="text-muted mb-5">Ingrese los datos solicitados</p>
+            </div>
+        </div>
+        <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
+            <div class="col-lg-6">
+                <form action="{% url 'editar_user' %}" method="POST" id="contactForm" data-sb-form-api-token="API_TOKEN" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <!-- Email address input-->
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="email" type="email" name="email" placeholder="name@example.com" data-sb-validations="required,email" />
+                        <label for="email">Correo electronico</label>
+                    </div>
+                    <!-- Nombre input -->
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="first_name" type="text" name="first_name" placeholder="Ingrese nombre...">
+                        <label for="first_name">Nombre</label>    
+                    </div>
+                    <!-- Apellido input -->
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="last_name" type="last_name" name="last_name" placeholder="Ingrese apellido...">
+                        <label for="last_name">Apellido</label>
+                    </div>
+                    <!-- Imagen input -->
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="imagen" type="file" name="imagen">
+                    </div>
+                    <!-- Botón Submit -->
+                    <div class="d-grid">
+                        <button class="btn btn-primary btn-lg" id="submitButton" type="submit">Actualizar</button>
+                    </div><p></p>
+                    <div class="d-grid">
+                        <a class="btn btn-primary btn-lg" href="{% url 'cambiar_contra' %}">Cambiar Contraseña</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock ingresos %}
+

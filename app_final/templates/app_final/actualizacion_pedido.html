@@ -1,0 +1,24 @@
+{% extends 'app_final/index.html' %}
+
+{% block barra %}
+<a class="navbar-brand" href="{% url 'productos' %}">Volver</a>
+{% endblock barra %}
+
+{% block cabecera %}
+<header class="masthead">
+    <div class="container px-4 px-lg-5 h-100">
+        <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+            <div class="col-lg-8 align-self-end">
+                <h1 class="text-white font-weight-bold">La actualizacion del pedido {{pedido.nombre}} se gestiono de manera correcta.</h1>
+                <h2 class="text-white font-weight-bold">Se desea buscar otro pedido, haga click en "Buscar Pedido"</h2>
+                <hr class="divider" />
+            </div>
+            <div class="col-lg-8 align-self-baseline">
+                <a class="btn btn-primary btn-xl" href="{% url 'buscar_pedido' %}">Buscar Pedido</a>
+            </div>
+        </div>
+    </div>
+</header>
+{% endblock cabecera %}
+
+
